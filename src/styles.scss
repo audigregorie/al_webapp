@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'primeicons/primeicons.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+@layer tailwind-base, primeng, tailwind-components;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-components {
+  @tailwind components;
+}
+@tailwind utilities;
+
+// General
+body {
+  @apply font-['Roboto'] text-[16px] font-normal;
+}
+
+// Debugging
+.debug {
+  @apply border-2 border-red-500;
+}
