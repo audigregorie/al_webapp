@@ -14,7 +14,7 @@
 
 // General
 body {
-  @apply font-['Roboto'] text-[16px] font-normal;
+  @apply font-['Roboto'] text-[16px] font-normal antialiased;
 }
 
 // Debugging
