@@ -1,13 +1,17 @@
 <app-header></app-header>
 
-<div class="flex h-96 w-full flex-col items-center justify-center">
-  <h1 class="font-['Prata'] text-6xl font-medium">Audi & Laura</h1>
-  <p class="pt-4 text-2xl">Internationally Renowned Kizomba Instructors</p>
-</div>
+<div class="w-screen">
+  <section class="flex h-96 w-full flex-col items-center justify-center">
+    <h1 class="font-['Prata'] text-6xl font-medium">Audi & Laura</h1>
+    <p class="pt-4 text-2xl">Internationally Renowned Kizomba Instructors</p>
+  </section>
 
-<section>
-  <div *ngFor="let video of videos()">
-    <p>title: {{ video.snippet.title }}</p>
-    <p>description: {{ video.snippet.description }}</p>
-  </div>
-</section>
+  <section class="w-full border border-gray-400">
+    <div class="flex flex-col px-16">
+      <div *ngFor="let video of videos()" class="flex flex-col flex-wrap">
+        <p>title: {{ video.snippet.title }}</p>
+        <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
+      </div>
+    </div>
+  </section>
+</div>

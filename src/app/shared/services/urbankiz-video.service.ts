@@ -16,7 +16,7 @@ export class UrbankizVideoService {
 
   public videoSig = signal<PlaylistItem[]>([])
 
-  constructor() { }
+  constructor() {}
 
   public fetchUrbankizVideos() {
     return this.http
