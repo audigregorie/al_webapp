@@ -7,42 +7,61 @@
     <p class="pt-4 text-2xl">Internationally Renowned Kizomba Instructors</p>
   </section>
 
-  <section class="w-full px-16">
-    <h2 class="video-heading">Urbankiz Videos</h2>
+  <section class="flex w-full flex-col justify-center px-16 pb-72 pt-24">
+    <div class="">
+      <h2 class="video-heading">Urbankiz Videos</h2>
 
-    <div class="flex flex-wrap items-start justify-center gap-6 pt-6">
-      <div *ngFor="let video of urbankizVideos() | slice: 0 : 3" class="flex w-[29rem] flex-col">
-        <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
-        <p class="video-title">{{ video.snippet.title }}</p>
-        <p class="video-owner-title">{{ video.snippet.videoOwnerChannelTitle }}</p>
-        <p class="video-tag">#urbankiz</p>
+      <div class="flex flex-wrap items-start justify-center gap-6 pt-8">
+        <div *ngFor="let video of urbankizVideos() | slice: 0 : 3" class="flex w-[29rem] flex-col">
+          <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
+          <p class="video-title">{{ video.snippet.title }}</p>
+          <p class="video-owner-title">{{ video.snippet.videoOwnerChannelTitle }}</p>
+          <p class="video-tag">#urbankiz</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-24">
+      <h2 class="video-heading">Tarraxo Videos</h2>
+
+      <div class="flex flex-wrap items-start justify-center gap-6 pt-8">
+        <div *ngFor="let video of tarraxoVideos() | slice: 0 : 3" class="flex w-[29rem] flex-col">
+          <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
+          <p class="video-title">{{ video.snippet.title }}</p>
+          <p class="video-owner-title">{{ video.snippet.videoOwnerChannelTitle }}</p>
+          <p class="video-tag">#tarraxo</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-24">
+      <h2 class="video-heading">Kiz Music</h2>
+
+      <div class="flex flex-wrap items-start justify-center gap-6 pt-8">
+        <div *ngFor="let video of kizMusic() | slice: 0 : 3" class="flex w-[29rem] flex-col">
+          <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
+          <p class="video-title">{{ video.snippet.title }}</p>
+          <p class="video-owner-title">{{ video.snippet.videoOwnerChannelTitle }}</p>
+          <p class="video-tag">#kizmusic</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="w-full px-16">
-    <h2 class="video-heading">Tarraxo Videos</h2>
-
-    <div class="flex flex-wrap items-start justify-center gap-6 pt-6">
-      <div *ngFor="let video of tarraxoVideos() | slice: 0 : 3" class="flex w-[29rem] flex-col">
-        <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
-        <p class="video-title">{{ video.snippet.title }}</p>
-        <p class="video-owner-title">{{ video.snippet.videoOwnerChannelTitle }}</p>
-        <p class="video-tag">#tarraxo</p>
+  <!-- <section class="relative flex w-full flex-col items-center overflow-hidden bg-slate-800 pb-72"> -->
+  <section class="flex w-full flex-col justify-center px-16 pb-72 pt-24">
+    <div class="relative flex w-full flex-col items-center overflow-hidden bg-slate-800 pb-72">
+      <div class="">
+        <h2 class="px-4 pt-24 text-3xl font-normal text-white">Our Impact</h2>
       </div>
-    </div>
-  </section>
 
-  <section class="w-full px-16">
-    <h2 class="video-heading">Kiz Music</h2>
-
-    <div class="flex flex-wrap items-start justify-center gap-6 pt-6">
-      <div *ngFor="let video of kizMusic() | slice: 0 : 3" class="flex w-[29rem] flex-col">
-        <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
-        <p class="video-title">{{ video.snippet.title }}</p>
-        <p class="video-owner-title">{{ video.snippet.videoOwnerChannelTitle }}</p>
-        <p class="video-tag">#kizmusic</p>
+      <div class="flex flex-wrap items-start justify-center gap-6 py-24 text-white">
+        <app-our-impact-item [stats]="'500K+'" [text]="'dancers taught and empowered worldwide'"></app-our-impact-item>
+        <app-our-impact-item [stats]="'27+'" [text]="'countries visited to share our knowledge'"></app-our-impact-item>
+        <app-our-impact-item [stats]="'156+'" [text]="'events attended, providing our expertise'"></app-our-impact-item>
+        <app-our-impact-item [stats]="'15+'" [text]="'years of combined experience in the dance industry'"></app-our-impact-item>
       </div>
+      <div class="border-element"></div>
     </div>
   </section>
 </div>
