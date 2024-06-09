@@ -14,7 +14,7 @@ export class UrbankizVideoService {
   private playlistItemsUri = '/playlistItems'
   private baseParam = new HttpParams().set('part', 'snippet').set('playlistId', 'PLFIFv2lqJqFtgLh4G-ap5v06N0V5tzgi5').set('key', environment.ytApiKey)
 
-  public videoSig = signal<PlaylistItem[]>([])
+  public urbankizVideoSig = signal<PlaylistItem[]>([])
 
   constructor() {}
 
@@ -22,7 +22,7 @@ export class UrbankizVideoService {
     return this.http
       .get<PlaylistItemResponse>(this.baseUrl + this.playlistItemsUri, { params: this.baseParam })
       .pipe(
-        map((res: PlaylistItemResponse) => this.videoSig.set(res.items)),
+        map((res: PlaylistItemResponse) => this.urbankizVideoSig.set(res.items)),
         shareReplay(1),
       )
       .subscribe()

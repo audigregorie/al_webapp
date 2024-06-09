@@ -6,11 +6,38 @@
     <p class="pt-4 text-2xl">Internationally Renowned Kizomba Instructors</p>
   </section>
 
-  <section class="w-full border border-gray-400">
-    <div class="flex flex-col px-16">
-      <div *ngFor="let video of videos()" class="flex flex-col flex-wrap">
-        <p>title: {{ video.snippet.title }}</p>
+  <section class="w-full px-16">
+    <h2 class="px-4 pt-6 text-3xl font-normal">Urbankiz Videos</h2>
+
+    <div class="flex flex-wrap items-start justify-center gap-6 pt-6">
+      <div *ngFor="let video of urbankizVideos() | slice: 0 : 3" class="flex w-[29rem] flex-col">
         <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
+        <p class="pt-2 font-medium">{{ video.snippet.title }}</p>
+        <p class="pt-1 font-light text-gray-500">#urbankiz</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="w-full px-16">
+    <h2 class="px-4 pt-6 text-3xl font-normal">Tarraxo Videos</h2>
+
+    <div class="flex flex-wrap items-start justify-center gap-6 pt-6">
+      <div *ngFor="let video of tarraxoVideos() | slice: 0 : 3" class="flex w-[29rem] flex-col">
+        <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
+        <p class="pt-2">{{ video.snippet.title }}</p>
+        <p class="pt-1 font-light text-gray-500">#tarraxo</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="w-full px-16">
+    <h2 class="px-4 pt-6 text-3xl font-normal">Music Media</h2>
+
+    <div class="flex flex-wrap items-start justify-center gap-6 pt-6">
+      <div *ngFor="let video of tarraxoVideos() | slice: 0 : 3" class="flex w-[29rem] flex-col">
+        <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
+        <p class="pt-2">{{ video.snippet.title }}</p>
+        <p class="pt-1 font-light text-gray-500">#tarraxo</p>
       </div>
     </div>
   </section>

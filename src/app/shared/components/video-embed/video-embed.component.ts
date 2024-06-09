@@ -18,7 +18,6 @@ export class VideoEmbedComponent implements OnInit {
   public videoEmbedBaseUrl: string = videoEmbedBaseUrl
 
   ngOnInit() {
-    // const url = `https://www.youtube.com/embed/${this.videoId}`
     const url = `${this.videoEmbedBaseUrl}${this.videoId}`
     this.videoEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url)
   }
