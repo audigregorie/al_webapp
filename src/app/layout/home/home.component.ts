@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common'
 import { videoEmbedBaseUrl } from '../../shared/constants/video-embed'
 import { VideoEmbedComponent } from '../../shared/components/video-embed/video-embed.component'
 import { TarraxoVideoService } from '../../shared/services/tarraxo-video.service'
+import { KizMusicService } from '../../shared/services/kiz-music.service'
 
 @Component({
   selector: 'app-home',
@@ -16,13 +17,16 @@ import { TarraxoVideoService } from '../../shared/services/tarraxo-video.service
 export class HomeComponent {
   private urbankizService = inject(UrbankizVideoService)
   private tarraxoService = inject(TarraxoVideoService)
+  private kizMusicService = inject(KizMusicService)
 
   public urbankizVideos = this.urbankizService.urbankizVideoSig
   public tarraxoVideos = this.tarraxoService.tarraxoVideoSig
+  public kizMusic = this.kizMusicService.kizMusicSig
   public videoEmbedBaseUrl = videoEmbedBaseUrl
 
   constructor() {
     this.urbankizService.fetchUrbankizVideos()
     this.tarraxoService.fetchTarraxoVideos()
+    this.kizMusicService.fetchKizMusic()
   }
 }

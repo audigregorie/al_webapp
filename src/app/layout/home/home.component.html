@@ -3,41 +3,45 @@
 <div class="w-screen">
   <section class="flex h-96 w-full flex-col items-center justify-center">
     <h1 class="font-['Prata'] text-6xl font-medium">Audi & Laura</h1>
+    <span class="text-blue-600">__</span>
     <p class="pt-4 text-2xl">Internationally Renowned Kizomba Instructors</p>
   </section>
 
   <section class="w-full px-16">
-    <h2 class="px-4 pt-6 text-3xl font-normal">Urbankiz Videos</h2>
+    <h2 class="video-heading">Urbankiz Videos</h2>
 
     <div class="flex flex-wrap items-start justify-center gap-6 pt-6">
       <div *ngFor="let video of urbankizVideos() | slice: 0 : 3" class="flex w-[29rem] flex-col">
         <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
-        <p class="pt-2 font-medium">{{ video.snippet.title }}</p>
-        <p class="pt-1 font-light text-gray-500">#urbankiz</p>
+        <p class="video-title">{{ video.snippet.title }}</p>
+        <p class="video-owner-title">{{ video.snippet.videoOwnerChannelTitle }}</p>
+        <p class="video-tag">#urbankiz</p>
       </div>
     </div>
   </section>
 
   <section class="w-full px-16">
-    <h2 class="px-4 pt-6 text-3xl font-normal">Tarraxo Videos</h2>
+    <h2 class="video-heading">Tarraxo Videos</h2>
 
     <div class="flex flex-wrap items-start justify-center gap-6 pt-6">
       <div *ngFor="let video of tarraxoVideos() | slice: 0 : 3" class="flex w-[29rem] flex-col">
         <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
-        <p class="pt-2">{{ video.snippet.title }}</p>
-        <p class="pt-1 font-light text-gray-500">#tarraxo</p>
+        <p class="video-title">{{ video.snippet.title }}</p>
+        <p class="video-owner-title">{{ video.snippet.videoOwnerChannelTitle }}</p>
+        <p class="video-tag">#tarraxo</p>
       </div>
     </div>
   </section>
 
   <section class="w-full px-16">
-    <h2 class="px-4 pt-6 text-3xl font-normal">Music Media</h2>
+    <h2 class="video-heading">Kiz Music</h2>
 
     <div class="flex flex-wrap items-start justify-center gap-6 pt-6">
-      <div *ngFor="let video of tarraxoVideos() | slice: 0 : 3" class="flex w-[29rem] flex-col">
+      <div *ngFor="let video of kizMusic() | slice: 0 : 3" class="flex w-[29rem] flex-col">
         <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
-        <p class="pt-2">{{ video.snippet.title }}</p>
-        <p class="pt-1 font-light text-gray-500">#tarraxo</p>
+        <p class="video-title">{{ video.snippet.title }}</p>
+        <p class="video-owner-title">{{ video.snippet.videoOwnerChannelTitle }}</p>
+        <p class="video-tag">#kizmusic</p>
       </div>
     </div>
   </section>

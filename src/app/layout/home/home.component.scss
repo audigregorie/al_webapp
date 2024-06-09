@@ -1,0 +1,15 @@
+.video-heading {
+  @apply px-4 pt-6 text-3xl font-normal text-blue-600;
+}
+
+.video-title {
+  @apply pt-2 text-lg font-medium;
+}
+
+.video-owner-title {
+  @apply pt-1 text-sm font-light;
+}
+
+.video-tag {
+  @apply pt-1 text-sm font-light text-blue-800;
+}
