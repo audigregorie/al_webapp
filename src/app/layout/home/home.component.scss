@@ -2,18 +2,6 @@
   @apply px-4 pt-6 text-3xl font-normal text-blue-600;
 }
 
-.video-title {
-  @apply pt-2 text-lg font-medium;
-}
-
-.video-owner-title {
-  @apply pt-1 text-sm font-light;
-}
-
-.video-tag {
-  @apply pt-1 text-sm font-light text-blue-800;
-}
-
 .border-element {
   @apply absolute bottom-0 z-[3] border-b-[16.1vw] border-l-[100vw] border-white border-l-transparent;
 }

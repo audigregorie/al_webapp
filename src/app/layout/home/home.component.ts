@@ -7,11 +7,12 @@ import { VideoEmbedComponent } from '../../shared/components/video-embed/video-e
 import { TarraxoVideoService } from '../../shared/services/tarraxo-video.service'
 import { KizMusicService } from '../../shared/services/kiz-music.service'
 import { OurImpactItemComponent } from '../../modules/our-impact-item/our-impact-item.component'
+import { VideoItemComponent } from '../../modules/video-item/video-item.component'
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, CommonModule, VideoEmbedComponent, OurImpactItemComponent],
+  imports: [HeaderComponent, CommonModule, VideoEmbedComponent, OurImpactItemComponent, VideoItemComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

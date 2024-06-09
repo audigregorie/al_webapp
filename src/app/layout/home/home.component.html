@@ -7,16 +7,14 @@
     <p class="pt-4 text-2xl">Internationally Renowned Kizomba Instructors</p>
   </section>
 
-  <section class="flex w-full flex-col justify-center px-16 pb-72 pt-24">
-    <div class="">
+  <!-- Videos Preview -->
+  <section class="flex w-full flex-col justify-center px-16 pb-24 pt-24">
+    <div>
       <h2 class="video-heading">Urbankiz Videos</h2>
 
       <div class="flex flex-wrap items-start justify-center gap-6 pt-8">
-        <div *ngFor="let video of urbankizVideos() | slice: 0 : 3" class="flex w-[29rem] flex-col">
-          <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
-          <p class="video-title">{{ video.snippet.title }}</p>
-          <p class="video-owner-title">{{ video.snippet.videoOwnerChannelTitle }}</p>
-          <p class="video-tag">#urbankiz</p>
+        <div *ngFor="let video of urbankizVideos() | slice: 0 : 3">
+          <app-video-item [video]="video" [videoTag]="'#urbankiz'"></app-video-item>
         </div>
       </div>
     </div>
@@ -25,11 +23,8 @@
       <h2 class="video-heading">Tarraxo Videos</h2>
 
       <div class="flex flex-wrap items-start justify-center gap-6 pt-8">
-        <div *ngFor="let video of tarraxoVideos() | slice: 0 : 3" class="flex w-[29rem] flex-col">
-          <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
-          <p class="video-title">{{ video.snippet.title }}</p>
-          <p class="video-owner-title">{{ video.snippet.videoOwnerChannelTitle }}</p>
-          <p class="video-tag">#tarraxo</p>
+        <div *ngFor="let video of tarraxoVideos() | slice: 0 : 3">
+          <app-video-item [video]="video" [videoTag]="'#tarraxo'"></app-video-item>
         </div>
       </div>
     </div>
@@ -38,17 +33,14 @@
       <h2 class="video-heading">Kiz Music</h2>
 
       <div class="flex flex-wrap items-start justify-center gap-6 pt-8">
-        <div *ngFor="let video of kizMusic() | slice: 0 : 3" class="flex w-[29rem] flex-col">
-          <app-video-embed [videoId]="video.snippet.resourceId.videoId"></app-video-embed>
-          <p class="video-title">{{ video.snippet.title }}</p>
-          <p class="video-owner-title">{{ video.snippet.videoOwnerChannelTitle }}</p>
-          <p class="video-tag">#kizmusic</p>
+        <div *ngFor="let video of kizMusic() | slice: 0 : 3">
+          <app-video-item [video]="video" [videoTag]="'#kizmusic'"></app-video-item>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- <section class="relative flex w-full flex-col items-center overflow-hidden bg-slate-800 pb-72"> -->
+  <!-- Our Impact -->
   <section class="flex w-full flex-col justify-center px-16 pb-72 pt-24">
     <div class="relative flex w-full flex-col items-center overflow-hidden bg-slate-800 pb-72">
       <div class="">
@@ -62,6 +54,18 @@
         <app-our-impact-item [stats]="'15+'" [text]="'years of combined experience in the dance industry'"></app-our-impact-item>
       </div>
       <div class="border-element"></div>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section class="flex w-full flex-col justify-center px-16 pb-72 pt-24">
+    <div class="flex flex-col gap-4">
+      <h2 class="text-3xl font-normal">About Us</h2>
+      <div class="h-[.1rem] w-12 bg-teal-600"></div>
+    </div>
+
+    <div>
+      <img src="" alt="" />
     </div>
   </section>
 </div>
