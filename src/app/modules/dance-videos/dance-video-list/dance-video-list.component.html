@@ -1,1 +1,15 @@
-<p>dance-video-list works!</p>
+<section class="flex w-screen flex-col px-16">
+  <div class="flex gap-4 pt-16 font-serif">
+    <button>All</button>
+    <button>Urbankiz</button>
+    <button>Tarraxo</button>
+  </div>
+  <div class="flex flex-wrap items-start justify-center gap-6 py-16">
+    <ng-container *ngIf="combinedDanceVideos$ | async as combinedDanceVideos">
+      <div *ngFor="let video of combinedDanceVideos">
+        <!-- FIX: Identify the correct video type for the video tag. -->
+        <app-video-item [video]="video" [videoTag]="'#danceVideos'"></app-video-item>
+      </div>
+    </ng-container>
+  </div>
+</section>
