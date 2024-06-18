@@ -1,15 +1,22 @@
-<section class="flex w-screen flex-col px-16">
+<section class="flex w-screen flex-col gap-4 px-16">
   <div class="flex gap-4 pt-16 font-serif">
-    <button>All</button>
-    <button>Urbankiz</button>
-    <button>Tarraxo</button>
+    <button (click)="showAllVideos()" class="dance-style-links">All</button>
+    <button (click)="showUrbankizVideos()" class="dance-style-links">Urbankiz</button>
+    <button (click)="showTarraxoVideos()" class="dance-style-links">Tarraxo</button>
   </div>
-  <div class="flex flex-wrap items-start justify-center gap-6 py-16">
-    <ng-container *ngIf="combinedDanceVideos$ | async as combinedDanceVideos">
-      <div *ngFor="let video of combinedDanceVideos">
-        <!-- FIX: Identify the correct video type for the video tag. -->
-        <app-video-item [video]="video" [videoTag]="'#danceVideos'"></app-video-item>
-      </div>
-    </ng-container>
+
+  <div class="pb-16">
+    <h1 class="text-3xl font-bold">Dance Videos</h1>
+    <p class="text-lg">A collection of our dance videos from around the world.</p>
+    <p class="font-serif">Thank you.</p>
   </div>
+
+  <!-- Show videos based on button clicked -->
+  @if (shownVideos(); as shownVideos) {
+  <div class="flex flex-wrap items-start justify-center gap-6 pb-16">
+    @for (video of shownVideos; track video.id) {
+    <app-video-item [video]="video" [videoTag]="'#danceVideos'"></app-video-item>
+    }
+  </div>
+  }
 </section>

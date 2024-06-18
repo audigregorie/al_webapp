@@ -1,1 +1,20 @@
-<p>music-video-list works!</p>
+<section class="flex w-screen flex-col gap-4 px-16">
+  <div class="flex gap-4 pt-16 font-serif">
+    <button>All</button>
+  </div>
+
+  <div class="pb-16">
+    <h1 class="text-3xl font-bold">Kiz Music</h1>
+    <p class="text-lg">A collection of music to which we enjoy listening.</p>
+    <p class="font-serif">Thank you.</p>
+  </div>
+
+  <!-- Show videos based on button clicked -->
+  @if (kizMusicVideos(); as kizMusicVideos) {
+  <div class="flex flex-wrap items-start justify-center gap-6 pb-16">
+    @for (video of kizMusicVideos; track video.id) {
+    <app-video-item [video]="video" [videoTag]="'#kizmusic'"></app-video-item>
+    }
+  </div>
+  }
+</section>

@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core'
+import { Component, inject } from '@angular/core'
 import { HeaderComponent } from '../header/header.component'
 import { UrbankizVideoService } from '../../shared/services/urbankiz-video.service'
 import { CommonModule } from '@angular/common'
@@ -19,19 +19,21 @@ import { Observable } from 'rxjs'
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   private urbankizService = inject(UrbankizVideoService)
   private tarraxoService = inject(TarraxoVideoService)
   private kizMusicService = inject(KizMusicService)
 
-  public urbankizVideos$!: Observable<PlaylistItem[]>
-  public tarraxoVideos$!: Observable<PlaylistItem[]>
-  public kizMusicVideos$!: Observable<PlaylistItem[]>
+  // public urbankizVideos$ = this.urbankizService.urbankizVideos$
+  // public urbankizVideos$!: Observable<PlaylistItem[]>
+
+  public urbankizVideos = this.urbankizService.urbankizVideos
+  public tarraxoVideos = this.tarraxoService.tarraxoVideos
+  public kizMusicVideos = this.kizMusicService.kizMusicVideos
   public videoEmbedBaseUrl = videoEmbedBaseUrl
 
-  ngOnInit(): void {
-    this.urbankizVideos$ = this.urbankizService.fetchUrbankizVideos()
-    this.tarraxoVideos$ = this.tarraxoService.fetchTarraxoVideos()
-    this.kizMusicVideos$ = this.kizMusicService.fetchKizMusic()
+  constructor() {
+    // this.urbankizVideos$ = this.urbankizService.urbankizVideos$
+    // this.urbankizVideos$ = this.urbankizService.getUrbankizVideos()
   }
 }

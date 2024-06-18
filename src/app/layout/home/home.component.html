@@ -9,42 +9,51 @@
     </section>
 
     <!-- Videos Preview -->
-    <section class="flex w-full flex-col justify-center px-16 pb-24 pt-24">
-      <div>
-        <h2 class="video-heading">Urbankiz Videos</h2>
+    <section class="flex w-full flex-col justify-center px-16 pb-24">
+      <!-- @if (urbankizVideos$ | async; as urbankizVideos) { -->
+      <!-- <div class="pt-24"> -->
+      <!--   <h2 class="video-heading">Urbankiz Videos</h2> -->
+      <!--   <div class="flex flex-wrap items-start justify-center gap-6 pt-8"> -->
+      <!--     @for (video of urbankizVideos | slice: 0 : 3; track video.id) { -->
+      <!--     <app-video-item [video]="video" [videoTag]="'#urbankiz'"></app-video-item> -->
+      <!--     } -->
+      <!--   </div> -->
+      <!-- </div> -->
+      <!-- } -->
 
+      <!-- Using an angular signal -->
+      @if (urbankizVideos(); as urbankizVideos) {
+      <div class="pt-24">
+        <h2 class="video-heading">Urbankiz Videos</h2>
         <div class="flex flex-wrap items-start justify-center gap-6 pt-8">
-          <ng-container *ngIf="urbankizVideos$ | async as urbankizVideos">
-            <div *ngFor="let video of urbankizVideos | slice: 0 : 3">
-              <app-video-item [video]="video" [videoTag]="'#urbankiz'"></app-video-item>
-            </div>
-          </ng-container>
+          @for (video of urbankizVideos | slice: 0 : 3; track video.id) {
+          <app-video-item [video]="video" [videoTag]="'#urbankiz'"></app-video-item>
+          }
         </div>
       </div>
+      }
 
+      @if (tarraxoVideos(); as tarraxoVideos) {
       <div class="pt-24">
         <h2 class="video-heading">Tarraxo Videos</h2>
-
         <div class="flex flex-wrap items-start justify-center gap-6 pt-8">
-          <ng-container *ngIf="tarraxoVideos$ | async as tarraxoVideos">
-            <div *ngFor="let video of tarraxoVideos | slice: 0 : 3">
-              <app-video-item [video]="video" [videoTag]="'#tarraxo'"></app-video-item>
-            </div>
-          </ng-container>
+          @for (video of tarraxoVideos | slice: 0 : 3; track video.id) {
+          <app-video-item [video]="video" [videoTag]="'#tarraxo'"></app-video-item>
+          }
         </div>
       </div>
+      }
 
+      @if (kizMusicVideos(); as kizMusicVideos) {
       <div class="pt-24">
         <h2 class="video-heading">Kiz Music</h2>
-
         <div class="flex flex-wrap items-start justify-center gap-6 pt-8">
-          <ng-container *ngIf="kizMusicVideos$ | async as kizMusicVideos">
-            <div *ngFor="let video of kizMusicVideos | slice: 0 : 3">
-              <app-video-item [video]="video" [videoTag]="'#kizmusic'"></app-video-item>
-            </div>
-          </ng-container>
+          @for (video of kizMusicVideos | slice: 0 : 3; track video.id) {
+          <app-video-item [video]="video" [videoTag]="'#kizmusic'"></app-video-item>
+          }
         </div>
       </div>
+      }
     </section>
 
     <!-- Our Impact -->
@@ -55,10 +64,14 @@
         </div>
 
         <div class="flex flex-wrap items-start justify-center gap-4 px-2 pb-24 pt-16 text-white">
-          <app-our-impact-item [stats]="'500K+'" [text]="'dancers taught and empowered worldwide'"></app-our-impact-item>
-          <app-our-impact-item [stats]="'27+'" [text]="'countries visited to share our knowledge'"></app-our-impact-item>
-          <app-our-impact-item [stats]="'156+'" [text]="'events attended, providing our expertise'"></app-our-impact-item>
-          <app-our-impact-item [stats]="'15+'" [text]="'years of combined experience in the dance industry'"></app-our-impact-item>
+          <app-our-impact-item [stats]="'300K+'"
+            [text]="'dancers taught and empowered worldwide'"></app-our-impact-item>
+          <app-our-impact-item [stats]="'29+'"
+            [text]="'countries visited to share our knowledge'"></app-our-impact-item>
+          <app-our-impact-item [stats]="'87+'"
+            [text]="'events attended, providing our expertise'"></app-our-impact-item>
+          <app-our-impact-item [stats]="'15+'"
+            [text]="'years of combined experience in the dance industry'"></app-our-impact-item>
         </div>
         <div class="border-element"></div>
       </div>
@@ -75,16 +88,22 @@
           <img src="assets/DSC_6934 (compressed).jpg" alt="" class="h-[600px] w-[400px]" />
           <div class="flex flex-col justify-end gap-16">
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, fugit earum. Porro, accusantium commodi illo libero magnam vero eaque, esse ad et, fugiat cum tempore vel incidunt
-              quaerat iste soluta. Doloremque in dicta reiciendis, esse molestiae asperiores cupiditate expedita quasi sit, repudiandae iusto eius quaerat deleniti? Repudiandae doloribus
-              necessitatibus laudantium, nemo voluptatum expedita explicabo nobis accusantium? Voluptatem officia consequuntur harum. Adipisci esse facere reprehenderit veritatis officiis incidunt
-              tempora doloremque omnis cumque quis numquam ullam culpa, placeat harum provident ea sit voluptatibus optio quo aliquam, tenetur assumenda enim? Tempora, nemo quidem.
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, fugit earum. Porro, accusantium commodi
+              illo libero magnam vero eaque, esse ad et, fugiat cum tempore vel incidunt quaerat iste soluta.
+              Doloremque in dicta reiciendis, esse molestiae asperiores cupiditate expedita quasi sit, repudiandae iusto
+              eius quaerat deleniti? Repudiandae doloribus necessitatibus laudantium, nemo voluptatum expedita
+              explicabo nobis accusantium? Voluptatem officia consequuntur harum. Adipisci esse facere reprehenderit
+              veritatis officiis incidunt tempora doloremque omnis cumque quis numquam ullam culpa, placeat harum
+              provident ea sit voluptatibus optio quo aliquam, tenetur assumenda enim? Tempora, nemo quidem.
             </p>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates eaque veritatis rem sed consequuntur officiis minima magni temporibus! Nisi ipsum amet facere id similique natus
-              alias vero tempore velit odio? Minus ea alias rem quasi dolores. Ex omnis suscipit vel mollitia odio amet natus error quo animi eligendi ipsum enim, nostrum adipisci, culpa deserunt
-              sequi pariatur perspiciatis dolorem porro rem. Magni illo placeat rem, obcaecati consequuntur possimus laboriosam incidunt accusamus repudiandae quos magnam nesciunt corporis fugiat odio
-              deserunt consequatur ad earum asperiores delectus culpa. Consequatur alias animi illum libero nobis?
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates eaque veritatis rem sed consequuntur
+              officiis minima magni temporibus! Nisi ipsum amet facere id similique natus alias vero tempore velit
+              odio? Minus ea alias rem quasi dolores. Ex omnis suscipit vel mollitia odio amet natus error quo animi
+              eligendi ipsum enim, nostrum adipisci, culpa deserunt sequi pariatur perspiciatis dolorem porro rem.
+              Magni illo placeat rem, obcaecati consequuntur possimus laboriosam incidunt accusamus repudiandae quos
+              magnam nesciunt corporis fugiat odio deserunt consequatur ad earum asperiores delectus culpa.
+              Consequatur alias animi illum libero nobis?
             </p>
           </div>
         </div>
@@ -94,9 +113,4 @@
       </div>
     </section>
   </div>
-
-  <!-- <!-1- Footer -1-> -->
-  <!-- <section class="flex h-20 w-full flex-col justify-center bg-black text-white"> -->
-  <!--   <app-footer></app-footer> -->
-  <!-- </section> -->
 </div>

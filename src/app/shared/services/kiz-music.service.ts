@@ -1,8 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http'
-import { Injectable, inject } from '@angular/core'
+import { Injectable, inject, signal } from '@angular/core'
 import { PlaylistItem, PlaylistItemResponse } from '../types/dance-video.type'
-import { Observable, Subject, map, shareReplay, takeUntil } from 'rxjs'
+import { map, tap } from 'rxjs'
 import { environment } from '../../../environments/environment.development'
+import { toSignal } from '@angular/core/rxjs-interop'
 
 @Injectable({
   providedIn: 'root',
@@ -12,23 +13,18 @@ export class KizMusicService {
 
   private baseUrl = 'https://youtube.googleapis.com/youtube/v3'
   private playlistItemsUri = '/playlistItems'
-  private baseParam = new HttpParams().set('part', 'snippet').set('playlistId', 'PLFIFv2lqJqFue2hTmZ4dZJ8cKw-87C-f-').set('key', environment.ytApiKey)
+  private baseParam = new HttpParams().set('part', 'snippet').set('playlistId', 'PLFIFv2lqJqFue2hTmZ4dZJ8cKw-87C-f-').set('key', environment.ytApiKey).set('maxResults', '50')
 
-  private destroy$ = new Subject<void>()
+  #kizMusicVideos = signal<PlaylistItem[]>([])
+  readonly kizMusicVideos = this.#kizMusicVideos
 
-  constructor() { }
-
-  // Ensure the subscription is destroyed.
-  ngOnDestroy(): void {
-    this.destroy$.complete()
-  }
+  constructor() {}
 
   // Get kiz music videos.
-  public fetchKizMusic(): Observable<PlaylistItem[]> {
-    return this.http.get<PlaylistItemResponse>(this.baseUrl + this.playlistItemsUri, { params: this.baseParam }).pipe(
+  public getKizMusicVideos = toSignal(
+    this.http.get<PlaylistItemResponse>(this.baseUrl + this.playlistItemsUri, { params: this.baseParam }).pipe(
       map((res: PlaylistItemResponse) => res.items),
-      shareReplay(1),
-      takeUntil(this.destroy$),
-    )
-  }
+      tap((items: PlaylistItem[]) => this.#kizMusicVideos.set(items)),
+    ),
+  )
 }
